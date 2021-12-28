@@ -3,7 +3,7 @@ import functions
 import schedule
 import time
 
-def term_search_write(search_str, re_expression, file_name, conditional):
+def term_search_write(search_str: str, re_expression: str, file_name: str, conditional: "function") -> None:
     print("Working...")
     terms_list = functions.timeline_search(search_str, re_expression)
     file1 = open(file_name, 'a')
@@ -12,7 +12,7 @@ def term_search_write(search_str, re_expression, file_name, conditional):
             file1.write(term+"\n")
     file1.close()
 
-def term_search_dict(terms_dict, search_str, re_expression, conditional):
+def term_search_dict(terms_dict: dict, search_str: str, re_expression: str, conditional: "function") -> None:
     print("Working...")
     terms_list = functions.timeline_search(search_str, re_expression)
     for term in terms_list:
@@ -23,7 +23,7 @@ def term_search_dict(terms_dict, search_str, re_expression, conditional):
                 terms_dict[term] += 1
     
 
-def print_terms_from_file(file_name):
+def print_terms_from_file(file_name: str) -> None:
     terms_dict = {}
     f = open(file_name, "r")
     for term in f.readlines():
